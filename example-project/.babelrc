@@ -1,0 +1,10 @@
+{
+    "plugins": [
+        [
+            "loginator",
+            {
+                "colors": true
+            }
+        ]
+    ]
+}

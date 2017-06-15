@@ -1,6 +1,13 @@
 const colors = require("colors");
 
 var levels = {
+  log: "[ LOG ]",
+  info: "[INFO ]",
+  warn: "[WARN ]",
+  error: "[ERROR]"
+};
+
+var coloredLevels = {
   log: "[ LOG ]".magenta,
   info: "[INFO ]".green,
   warn: "[WARN ]".yellow,
@@ -20,9 +27,11 @@ module.exports = function(babel) {
     );
   }
 
-  function level(callee) {
+  function level(callee, opts) {
     const level = callee.property.name;
-    return types.stringLiteral(levels[level]);
+    return types.stringLiteral(
+      opts.colors ? coloredLevels[level] : levels[level]
+    );
   }
 
   function fileLine(path) {
@@ -32,14 +41,14 @@ module.exports = function(babel) {
   }
 
   return {
-    name: "ast-transform", // not required
+    name: "loginator", // not required
     visitor: {
-      CallExpression(path) {
+      CallExpression(path, state) {
         const callee = path.node.callee;
 
         if (callee && callee.object && callee.object.name === "console") {
           path.node.arguments = [
-            level(callee),
+            level(callee, state.opts),
             newDate(),
             fileLine(path),
             ...path.node.arguments
