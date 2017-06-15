@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "babel test.js"
+    "build": "babel example.js"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",

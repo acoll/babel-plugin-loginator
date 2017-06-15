@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`File Tests es-imports.js 1`] = `
+"import fs from \\"fs\\";
+
+export default function Thing() {
+  console.log(\\"[ LOG ]\\", new Date().toISOString(), \\"[/tests/test-files/es-imports.js:4]\\", \\"Its a thing\\", this);
+
+  return \\"hi\\";
+}"
+`;
+
+exports[`File Tests function.js 1`] = `
+"function sayHi() {
+  const x = \\"thing\\";
+  console.log(\\"[ LOG ]\\", new Date().toISOString(), \\"[/tests/test-files/function.js:3]\\", \\"hello\\", x);
+  return x;
+}
+
+console.log(\\"[ LOG ]\\", new Date().toISOString(), \\"[/tests/test-files/function.js:7]\\", \\"function inside console\\", sayHi, sayHi(), () => sayHi());"
+`;
+
+exports[`File Tests simple.js 1`] = `"console.log(\\"[ LOG ]\\", new Date().toISOString(), \\"[/tests/test-files/simple.js:1]\\", \\"hello\\");"`;

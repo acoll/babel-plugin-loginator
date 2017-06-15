@@ -35,7 +35,10 @@ module.exports = function(babel) {
   }
 
   function fileLine(path) {
-    const file = path.hub.file.parserOpts.sourceFileName;
+    const file = path.hub.file.parserOpts.sourceFileName.replace(
+      process.cwd(),
+      ""
+    );
     const line = path.node.loc.start.line;
     return types.stringLiteral(`[${file}:${line}]`);
   }
