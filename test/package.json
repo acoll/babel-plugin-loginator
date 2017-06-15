@@ -1,0 +1,12 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel test.js"
+  },
+  "dependencies": {
+    "babel-cli": "^6.24.1"
+  }
+}

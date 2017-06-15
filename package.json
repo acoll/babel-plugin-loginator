@@ -1,0 +1,10 @@
+{
+  "name": "babel-plugin-loginator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.25.0",
+    "colors": "^1.1.2"
+  }
+}
